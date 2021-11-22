@@ -1,10 +1,7 @@
-FROM node:15.5.1
+FROM node:16.13.0
 
 RUN apt-get update \
-    && apt-get install -y python-dev zip jq \
-    && cd /tmp \
-    && curl -O https://bootstrap.pypa.io/get-pip.py \
-    && python get-pip.py \
-    && pip install awscli --upgrade \
+    && apt-get install -y python3-dev python3-pip zip jq \
+    && pip3 install awscli --upgrade \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
